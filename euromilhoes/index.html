@@ -34,8 +34,7 @@
 
             main {
                 width: min(100% - 2rem, 60vw);
-                padding: 2rem;
-                height: 75vh;
+                padding: 2rem 1rem;
                 outline: 3px solid var(--cor-1);
             }
 
@@ -64,6 +63,12 @@
             .estrelas p {
                 font-weight: bold;
                 padding: 0.25rem;
+            }
+
+            @media only screen and (max-width: 600px) {
+                button {
+                    width: 100%;
+                }
             }
         </style>
     </head>
