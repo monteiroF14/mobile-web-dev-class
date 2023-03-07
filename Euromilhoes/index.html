@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="manifest" href="manifest.json" />
+        <script defer src="index.js"></script>
+
+        <title>Euromilhões</title>
+
+        <style>
+            @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+            * {
+                margin: 0;
+                padding: 0;
+                font-family: "Montserrat", sans-serif;
+            }
+
+            :root {
+                --cor-1: #000;
+                --cor-2: #505050;
+            }
+
+            body {
+                width: 100vw;
+                height: 100vh;
+                display: grid;
+                place-items: center;
+            }
+
+            main {
+                width: min(100% - 2rem, 60vw);
+                padding: 2rem;
+                height: 75vh;
+                outline: 3px solid var(--cor-1);
+            }
+
+            button {
+                padding: 0.5rem 1.5rem;
+                font-weight: bold;
+                background: transparent;
+                color: var(--cor-2);
+                border: 3px solid currentColor;
+                cursor: pointer;
+            }
+
+            hr {
+                margin-block: 1.5rem;
+                border: 1px solid var(--cor-2);
+            }
+
+            .numeros,
+            .estrelas {
+                display: flex;
+                justify-content: space-evenly;
+                margin-block: 2rem;
+            }
+
+            .numeros p,
+            .estrelas p {
+                font-weight: bold;
+                padding: 0.25rem;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <button>Gerar números</button>
+            <hr />
+            <div>
+                <h2>Números gerados:</h2>
+                <div class="numeros"></div>
+                <h2>Estrelas geradas:</h2>
+                <div class="estrelas"></div>
+            </div>
+        </main>
+    </body>
+</html>
