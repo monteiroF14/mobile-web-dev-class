@@ -28,7 +28,7 @@
     ],
     "name": "Gerador do Euromilhões",
     "short_name": "Gerador do Euromilhões",
-    "start_url": "/",
+    "start_url": "https://monteirof14.github.io/mobile-web-dev-class/euromilhoes/",
     "theme_color": "#ffffff",
     "scope": "/",
     "launch_handler": {
