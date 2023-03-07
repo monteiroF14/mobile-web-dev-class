@@ -1,25 +1,42 @@
 const gerarNumeros = (qnt, maxValue) => {
-    function getRandomInt(max) {
-        return Math.floor(Math.random() * max);
+    const numerosGerados = new Set();
+
+    while (numerosGerados.size < qnt) {
+        const randomNumber = Math.floor(Math.random() * maxValue);
+
+        numerosGerados.add(randomNumber);
     }
 
-    function checkIfExists(randomNumber) {
-        if (numGerado.includes(randomNumber)) {
-            return;
-        }
-    }
-
-    const numGerado = [];
-
-    while (numGerado.length < 5) {
-        const randomNumber = getRandomInt(maxValue);
-
-        numGerado.indexOf(randomNumber) === -1
-            ? numGerado.push(randomNumber)
-            : console.log("This item already exists");
-    }
-
-    return numGerado;
+    return [...numerosGerados];
 };
 
-document.querySelector("button").addEventListener("click", gerarNumeros(5, 50));
+const displayOnMain = (numeros, estrelas) => {
+    const createNumberParagraphs = (numbers) => {
+        return numbers.map((num) => {
+            const p = document.createElement("p");
+            p.textContent = num;
+            return p;
+        });
+    };
+
+    const numParagraphs = createNumberParagraphs(numeros);
+    const estParagraphs = createNumberParagraphs(estrelas);
+
+    numerosOnMain.innerHTML = "";
+    estrelasOnMain.innerHTML = "";
+
+    numerosOnMain.append(...numParagraphs);
+    estrelasOnMain.append(...estParagraphs);
+};
+
+const numerosOnMain = document.querySelector(".numeros");
+const estrelasOnMain = document.querySelector(".estrelas");
+const generateBtn = document.querySelector("button");
+
+window.addEventListener("load", () => {
+    displayOnMain(gerarNumeros(5, 50), gerarNumeros(2, 12));
+});
+
+generateBtn.addEventListener("click", () => {
+    displayOnMain(gerarNumeros(5, 50), gerarNumeros(2, 12));
+});
