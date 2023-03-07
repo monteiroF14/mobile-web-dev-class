@@ -30,7 +30,7 @@
     "short_name": "Gerador do Euromilhões",
     "start_url": "/",
     "theme_color": "#ffffff",
-    "scope": ".",
+    "scope": "/",
     "launch_handler": {
         "route_to": "existing-client",
         "navigate_existing_client": "never"
