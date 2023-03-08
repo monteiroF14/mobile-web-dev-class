@@ -65,6 +65,11 @@ button {
     align-items: center;
 }
 
+.info h2 {
+    flex-grow: 1;
+    justify-self: start;
+}
+
 hr {
     margin-block: 1.5rem;
     border: 1px solid var(--cor-2);
@@ -90,5 +95,9 @@ hr {
 
     header img {
         width: clamp(140px, 160px, 200px);
+    }
+
+    .info h2 {
+        display: none;
     }
 }
