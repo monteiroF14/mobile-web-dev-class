@@ -28,7 +28,7 @@
     ],
     "name": "knot",
     "short_name": "knot",
-    "start_url": "https://monteirof14.github.io/mobile-web-dev-class/knot/",
+    "start_url": "https://monteirof14.github.io/mobile-web-dev-class/knot/src/",
     "theme_color": "#ffffff",
     "scope": "/",
     "launch_handler": {
