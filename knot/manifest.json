@@ -26,8 +26,8 @@
             "type": "image/png"
         }
     ],
-    "name": "Knot",
-    "short_name": "Knot",
+    "name": "knot",
+    "short_name": "knot",
     "start_url": "https://monteirof14.github.io/mobile-web-dev-class/knot/",
     "theme_color": "#ffffff",
     "scope": "/",
