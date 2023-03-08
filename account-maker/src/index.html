@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+        <link rel="manifest" href="manifest.json" />
+
+        <link rel="stylesheet" href="../assets/css/style.css" />
+
+        <script defer src="index.js"></script>
+
+        <title>Account Maker</title>
+    </head>
+    <body>
+        <form action="https://monteirof14.github.io/mobile-web-dev-class/euromilhoes/">
+            <h1>Criar conta:</h1>
+            <div class="grid">
+                <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    pattern="^[a-zA-Z]+$"
+                    placeholder="Insira o seu nome.."
+                    required
+                />
+                <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Insira um email.."
+                    required
+                />
+                <input
+                    type="tel"
+                    name="phone"
+                    id="phone"
+                    pattern="[0-9]{9}"
+                    placeholder="Insira o seu contacto.."
+                    required
+                />
+                <input
+                    type="number"
+                    name="nif"
+                    id="nif"
+                    placeholder="Insira o seu NIF.."
+                    required
+                />
+                <input
+                    type="text"
+                    name="address"
+                    id="address"
+                    placeholder="Insira a sua morada.."
+                    required
+                />
+                <textarea
+                    name="observations"
+                    id="observations"
+                    cols="30"
+                    rows="5"
+                    placeholder="Escreva algumas observações.."
+                ></textarea>
+            </div>
+            <button>Criar conta</button>
+        </form>
+    </body>
+</html>
