@@ -1,7 +1,7 @@
 {
     "background_color": "#ffffff",
     "description": "Gerador de números e estrelas do euromilhões.",
-    "display": "standalone",
+    "display": "minimal-ui",
     "icons": [
         {
             "src": "https://monteirof14.github.io/mobile-web-dev-class/euromilhoes/img/icon-default.png",
