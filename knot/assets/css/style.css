@@ -27,7 +27,7 @@ header {
 }
 
 header img {
-    width: 180px;
+    width: 200px;
 }
 
 header a {
@@ -82,6 +82,6 @@ hr {
     }
 
     header img {
-        width: clamp(140px, 170px, 200px);
+        width: clamp(120px, 150px, 200px);
     }
 }
