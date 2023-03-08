@@ -1,7 +1,7 @@
 document.querySelector("form").addEventListener(
     "submit",
-    () => {
-        let nif = document.querySelector("#nif");
+    (e) => {
+        const nif = document.querySelector("#nif").value;
 
         if (nif < 0) {
             e.preventDefault();
