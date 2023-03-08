@@ -14,14 +14,39 @@
 body {
     width: 100vw;
     height: 100vh;
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    width: min(100% - 2rem, 80vw);
+    margin: 0 auto;
+    padding-bottom: 2rem;
+}
+
+header img {
+    width: 160px;
+}
+
+header a {
+    margin-left: auto;
+    font-weight: bold;
+    color: var(--cor-1);
+}
+
+h1 {
+    width: min(100% - 2rem, 80vw);
+    font-size: clamp(1.75rem, 2.5vw, 2.2rem);
+    margin: 0 auto;
 }
 
 main {
     width: min(100% - 2rem, 60vw);
     padding: 2rem 1rem;
     outline: 3px solid var(--cor-1);
+    margin: auto;
 }
 
 button {
@@ -54,5 +79,9 @@ hr {
 @media only screen and (max-width: 600px) {
     button {
         width: 100%;
+    }
+
+    header img {
+        width: clamp(120px, 150px, 180px);
     }
 }

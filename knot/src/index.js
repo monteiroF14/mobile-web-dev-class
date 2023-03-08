@@ -1,6 +1,7 @@
 const numerosOnMain = document.querySelector(".numeros");
 const estrelasOnMain = document.querySelector(".estrelas");
 const generateBtn = document.querySelector("button");
+const createAccount = document.querySelector("header > a");
 
 const gerarNumeros = (qnt, maxValue) => {
     const numerosGerados = new Set();
@@ -44,18 +45,25 @@ const getUserData = () => {
         const nif = urlParameters.get("nif");
         const address = urlParameters.get("address");
         const observations = urlParameters.get("observations");
-        
-        document.querySelector('.helloUser')?.innerHTML = `Bem vindo ${name}`
 
-        return true
+        const time = new Date().getHours() > 18 ? "Boa noite" : "Bom dia";
+
+        document.querySelector(".helloUser").innerHTML = `${time}, ${name}`;
+
+        localStorage.setItem(
+            "user",
+            JSON.stringify([[name, email, phone, nif, address, observations]])
+        );
+
+        return true;
     } else {
-        return false
+        return false;
     }
 };
 
 window.addEventListener("load", () => {
-    if(getUserData()){
-        document.querySelector('header > a')?.innerHTML = "Sair"
+    if (getUserData()) {
+        createAccount.innerHTML = "Sair";
     }
 
     displayOnMain(gerarNumeros(5, 50), gerarNumeros(2, 12));
@@ -63,4 +71,13 @@ window.addEventListener("load", () => {
 
 generateBtn.addEventListener("click", () => {
     displayOnMain(gerarNumeros(5, 50), gerarNumeros(2, 12));
+});
+
+createAccount?.addEventListener("click", (e) => {
+    if (createAccount.innerHTML === "Sair") {
+        e.preventDefault();
+        localStorage.removeItem("user");
+        window.history.pushState({}, document.title, "/knot/src/");
+        window.location.reload();
+    }
 });
