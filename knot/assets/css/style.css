@@ -47,6 +47,8 @@ main {
     padding: 2rem 1rem;
     outline: 3px solid var(--cor-1);
     margin: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 button {
@@ -56,6 +58,16 @@ button {
     color: var(--cor-2);
     border: 3px solid currentColor;
     cursor: pointer;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+}
+
+.info h2 {
+    flex-grow: 1;
+    justify-self: start;
 }
 
 hr {
