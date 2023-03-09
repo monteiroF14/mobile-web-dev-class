@@ -46,7 +46,6 @@ const getUserData = () => {
         const address = urlParameters.get("address");
         const observations = urlParameters.get("observations");
 
-<<<<<<< HEAD
         const time = () => {
             const now = new Date();
             const hour = now.getHours();
@@ -57,20 +56,6 @@ const getUserData = () => {
                 return "Boa noite";
             }
         };
-=======
-        const time = () {
-          const now = new Date();
-          const hour = now.getHours();
-
-          if (hour >= 6 && hour < 18) {
-            return "Bom dia";
-          } else {
-            return "Boa noite";
-          }
-        };
-
-        document.querySelector(".helloUser").innerHTML = `${time()}, ${name}`;
->>>>>>> 088c96897089acde6b68ccf9536de993c80c7eab
 
         document.querySelector(".helloUser").innerHTML = `${time()}, ${name}`;
 
