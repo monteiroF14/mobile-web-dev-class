@@ -46,14 +46,48 @@ const getUserData = () => {
         const address = urlParameters.get("address");
         const observations = urlParameters.get("observations");
 
-        const time = new Date().getHours() > 18 ? "Boa noite" : "Bom dia";
+        const time = () => {
+            const now = new Date();
+            const hour = now.getHours();
 
-        document.querySelector(".helloUser").innerHTML = `${time}, ${name}`;
+            if (hour >= 6 && hour < 18) {
+                return "Bom dia";
+            } else {
+                return "Boa noite";
+            }
+        };
 
-        localStorage.setItem(
-            "user",
-            JSON.stringify([[name, email, phone, nif, address, observations]])
-        );
+        document.querySelector(".helloUser").innerHTML = `${time()}, ${name}`;
+
+        const indexedDB =
+            window.indexedDB ||
+            window.mozIndexedDB ||
+            window.webkitIndexedDB ||
+            window.msIndexedDB ||
+            window.shimIndexedDB;
+
+        const openRequest = indexedDB.open("userDB", 1);
+
+        openRequest.onupgradeneeded = function (event) {
+            const db = event.target.result;
+            const objectStore = db.createObjectStore("user", {
+                keyPath: "id",
+                autoIncrement: true,
+            });
+            objectStore.createIndex("name", "name", { unique: false });
+            objectStore.createIndex("email", "email", { unique: false });
+            objectStore.createIndex("phone", "phone", { unique: false });
+            objectStore.createIndex("nif", "nif", { unique: false });
+            objectStore.createIndex("address", "address", { unique: false });
+            objectStore.createIndex("observations", "observations", { unique: false });
+        };
+
+        openRequest.onsuccess = function (event) {
+            const db = event.target.result;
+            const transaction = db.transaction(["user"], "readwrite");
+            const objectStore = transaction.objectStore("user");
+            objectStore.add({ name, email, phone, nif, address, observations });
+        };
 
         return true;
     } else {
@@ -76,7 +110,34 @@ generateBtn.addEventListener("click", () => {
 createAccount?.addEventListener("click", (e) => {
     if (createAccount.innerHTML === "Sair") {
         e.preventDefault();
-        localStorage.removeItem("user");
+
+        const indexedDB =
+            window.indexedDB ||
+            window.mozIndexedDB ||
+            window.webkitIndexedDB ||
+            window.msIndexedDB ||
+            window.shimIndexedDB;
+
+        const openRequest = indexedDB.open("userDB", 1);
+
+        openRequest.onsuccess = function (event) {
+            const db = event.target.result;
+            const transaction = db.transaction(["user"], "readwrite");
+            const objectStore = transaction.objectStore("user");
+            const clearRequest = objectStore.clear();
+
+            clearRequest.onsuccess = function (event) {
+                console.log("All records removed from 'user' object store");
+            };
+
+            clearRequest.onerror = function (event) {
+                console.error(
+                    "Error removing records from 'user' object store",
+                    event.target.error
+                );
+            };
+        };
+
         window.history.pushState({}, document.title, "/knot/src/");
         window.location.reload();
     }
