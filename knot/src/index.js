@@ -46,9 +46,18 @@ const getUserData = () => {
         const address = urlParameters.get("address");
         const observations = urlParameters.get("observations");
 
-        const time = new Date().getHours() > 18 ? "Boa noite" : "Bom dia";
+        const time = () {
+          const now = new Date();
+          const hour = now.getHours();
 
-        document.querySelector(".helloUser").innerHTML = `${time}, ${name}`;
+          if (hour >= 6 && hour < 18) {
+            return "Bom dia";
+          } else {
+            return "Boa noite";
+          }
+        };
+
+        document.querySelector(".helloUser").innerHTML = `${time()}, ${name}`;
 
         localStorage.setItem(
             "user",
