@@ -1,4 +1,5 @@
 # TODO
 
--   use indexedDB record to get name on PWA even if app closes
+-   passar o código da verificação para o register
+-   fazer o login baseado no email
 -   add new features or refacture design
