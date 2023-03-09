@@ -14,8 +14,6 @@
 body {
     width: 100vw;
     height: 100vh;
-    display: grid;
-    place-items: center;
 }
 
 form {
@@ -25,6 +23,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    margin: 6rem auto;
 }
 
 button {
