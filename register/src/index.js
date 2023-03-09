@@ -8,12 +8,12 @@ document.querySelector("form").addEventListener(
 
             alert("Insira um NIF válido!");
 
-            name.value = "";
-            email.value = "";
-            phone.value = "";
-            nif.value = "";
-            address.value = "";
-            observations.value = "";
+            document.querySelector("#name").value = "";
+            document.querySelector("#email").value = "";
+            document.querySelector("#phone").value = "";
+            document.querySelector("#nif").value = "";
+            document.querySelector("#address").value = "";
+            document.querySelector("#observations").value = "";
         }
     },
     true

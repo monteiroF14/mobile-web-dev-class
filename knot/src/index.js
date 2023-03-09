@@ -138,7 +138,7 @@ createAccount?.addEventListener("click", (e) => {
             };
         };
 
-        window.history.pushState({}, document.title, "/knot/src/");
+        window.history.pushState({}, document.title, "/");
         window.location.reload();
     }
 });
