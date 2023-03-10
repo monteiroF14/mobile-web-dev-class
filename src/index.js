@@ -1,5 +1,4 @@
 import getUserFromDB from "./getUserFromDB.js";
-import removeUserFromDB from "./removeUserFromDB.js";
 import getUserFromURL from "./getUserFromURL.js";
 
 const numerosOnMain = document.querySelector(".numeros");
@@ -13,8 +12,6 @@ const indexedDB =
     window.webkitIndexedDB ||
     window.msIndexedDB ||
     window.shimIndexedDB;
-
-let currentUser;
 
 const gerarNumeros = (qnt, maxValue) => {
     const numerosGerados = new Set();
@@ -70,8 +67,7 @@ generateBtn.addEventListener("click", () => {
 createAccount?.addEventListener("click", (e) => {
     if (createAccount.innerHTML === "Sair") {
         e.preventDefault();
-        removeUserFromDB(currentUser);
-        window.history.pushState({}, document.title, "/mobile-web-dev-class/knot/src/");
+        window.history.pushState({}, document.title, "/mobile-web-dev-class/");
         window.location.reload();
     }
 });
