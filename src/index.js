@@ -76,7 +76,10 @@ generateBtn.addEventListener("click", () => {
 createAccount?.addEventListener("click", (e) => {
     if (createAccount.innerHTML === "Sair") {
         e.preventDefault();
-        window.history.pushState({}, document.title, "/mobile-web-dev-class/");
+
+        localStorage.removeItem("SESSION_ID");
+        localStorage.removeItem("USER_ID");
+        window.history.pushState({}, document.title, "/");
         window.location.reload();
     }
 });

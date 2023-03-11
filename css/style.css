@@ -20,7 +20,7 @@ body {
 
     display: grid;
     grid-template-rows: auto 5rem 1fr;
-    max-width: 60rem;
+    max-width: var(--min-width);
     width: clamp(var(--min-width), var(--max-width) - 1.5rem, 100%);
     margin: 0 auto;
 }
