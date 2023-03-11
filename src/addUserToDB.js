@@ -1,4 +1,4 @@
-const addUserToDB = (userData, createAccount, userGreeting, time) => {
+const addUserToDB = (userData) => {
     return new Promise((resolve, reject) => {
         if (!indexedDB) {
             console.error("IndexedDB not supported");
@@ -30,14 +30,20 @@ const addUserToDB = (userData, createAccount, userGreeting, time) => {
             req.onsuccess = (e) => {
                 const user = e.target.result;
                 if (!user) {
-                    objectStore.add(userData);
-                    createAccount.innerHTML = "Sair";
-                    userGreeting.innerHTML = `${time}, ${userData["name"]}`;
-                }
-                transaction.oncomplete = () => {
+                    const addUserRequest = objectStore.add(userData);
+                    addUserRequest.onsuccess = (event) => {
+                        const userId = event.target.result;
+                        db.close();
+                        resolve(userId);
+                    };
+                } else {
                     db.close();
-                    resolve();
-                };
+                    reject(new Error("utilizador já existe!"));
+                }
+            };
+            transaction.onerror = (event) => {
+                db.close();
+                reject(new Error("Failed to add user to DB"));
             };
         };
 

@@ -7,13 +7,13 @@
 
         <link rel="stylesheet" href="css/style.css" />
 
-        <script defer src="src/register.js"></script>
+        <script defer type="module" src="src/register.js"></script>
 
         <title>Crie a sua conta knot</title>
     </head>
     <body>
         <!-- <form action="https://monteirof14.github.io/mobile-web-dev-class/"> -->
-        <form action="http://127.0.0.1:5500/mobile-web-dev-class/">
+        <form action="/" method="post">
             <h1>Criar conta:</h1>
             <div class="grid">
                 <input
@@ -50,12 +50,14 @@
                     type="text"
                     name="address"
                     id="address"
+                    class="address"
                     placeholder="Insira a sua morada.."
                     required
                 />
                 <textarea
                     name="observations"
                     id="observations"
+                    class="observations"
                     cols="30"
                     rows="5"
                     placeholder="Escreva algumas observações.."
