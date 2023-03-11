@@ -5,6 +5,9 @@
     --color-white: #fff;
     --color-black: #000;
     --color-gray: #505050;
+
+    --max-width: calc(90vw - 1.5rem);
+    --min-width: 70vw;
 }
 
 * {
@@ -15,15 +18,12 @@
 }
 
 body {
-    --max-width: 90vw;
-    --min-width: 60vw;
-
     display: grid;
     grid-template-rows: auto 5rem 1fr;
-    max-width: var(--min-width);
-    width: clamp(var(--min-width), var(--max-width) - 1.5rem, 100%);
+    width: var(--min-width);
     margin: 0 auto;
 }
+/* width: clamp(var(--min-width), var(--max-width), 100%); */
 
 body > * {
     width: 100%;
@@ -123,6 +123,10 @@ textarea {
 }
 
 @media (width <= 600px) {
+    body {
+        width: var(--max-width);
+    }
+
     button {
         width: 100%;
     }
