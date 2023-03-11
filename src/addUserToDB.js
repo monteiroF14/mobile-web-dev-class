@@ -19,6 +19,10 @@ const addUserToDB = (userData) => {
             objectStore.createIndex("nif", "nif", { unique: false });
             objectStore.createIndex("address", "address", { unique: false });
             objectStore.createIndex("observations", "observations", { unique: false });
+
+            objectStore.addEventListener("error", (event) => {
+                console.error("Failed to create object store:", event);
+            });
         };
 
         request.onsuccess = (event) => {
