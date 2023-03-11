@@ -1,5 +1,12 @@
 const addUserToDB = (userData) => {
     return new Promise((resolve, reject) => {
+        const indexedDB =
+            window.indexedDB ||
+            window.mozIndexedDB ||
+            window.webkitIndexedDB ||
+            window.msIndexedDB ||
+            window.shimIndexedDB;
+
         if (!indexedDB) {
             console.error("IndexedDB not supported");
             reject(new Error("IndexedDB not supported"));
@@ -19,10 +26,6 @@ const addUserToDB = (userData) => {
             objectStore.createIndex("nif", "nif", { unique: false });
             objectStore.createIndex("address", "address", { unique: false });
             objectStore.createIndex("observations", "observations", { unique: false });
-
-            objectStore.addEventListener("error", (event) => {
-                console.error("Failed to create object store:", event);
-            });
         };
 
         request.onsuccess = (event) => {
