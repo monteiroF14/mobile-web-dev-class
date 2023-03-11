@@ -30,7 +30,7 @@
     "short_name": "knot",
     "start_url": "https://monteirof14.github.io/mobile-web-dev-class/",
     "theme_color": "#ffffff",
-    "scope": "https://monteirof14.github.io/",
+    "scope": "/",
     "orientation": "portrait",
     "launch_handler": {
         "route_to": "existing-client",
