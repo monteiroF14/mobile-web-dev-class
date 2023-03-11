@@ -79,7 +79,7 @@ createAccount?.addEventListener("click", (e) => {
 
         localStorage.removeItem("SESSION_ID");
         localStorage.removeItem("USER_ID");
-        window.history.pushState({}, document.title, "/");
+        window.history.pushState({}, document.title, "/mobile-web-dev-class/");
         window.location.reload();
     }
 });
