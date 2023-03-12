@@ -6,7 +6,7 @@ const generateBtn = document.querySelector("button");
 const createAccount = document.querySelector("header > a");
 const userGreeting = document.querySelector(".helloUser");
 
-const indexedDB =
+export const indexedDB =
     window.indexedDB ||
     window.mozIndexedDB ||
     window.webkitIndexedDB ||
@@ -47,6 +47,21 @@ const displayOnMain = (numeros, estrelas) => {
     estrelasOnMain.append(...estParagraphs);
 };
 
+const handleCreateAccountClick = (e) => {
+    if (createAccount.innerHTML === "Sair") {
+        e.preventDefault();
+
+        localStorage.removeItem("SESSION_ID");
+        localStorage.removeItem("USER_ID");
+        window.history.pushState({}, document.title, "/mobile-web-dev-class/");
+        window.location.reload();
+    }
+};
+
+const handleGenerateBtnClick = () => {
+    displayOnMain(gerarNumeros(5, 50), gerarNumeros(2, 12));
+};
+
 const time = () => {
     const now = new Date();
     const hour = now.getHours();
@@ -69,17 +84,5 @@ window.addEventListener("load", () => {
     }
 });
 
-generateBtn.addEventListener("click", () => {
-    displayOnMain(gerarNumeros(5, 50), gerarNumeros(2, 12));
-});
-
-createAccount?.addEventListener("click", (e) => {
-    if (createAccount.innerHTML === "Sair") {
-        e.preventDefault();
-
-        localStorage.removeItem("SESSION_ID");
-        localStorage.removeItem("USER_ID");
-        window.history.pushState({}, document.title, "/mobile-web-dev-class/");
-        window.location.reload();
-    }
-});
+generateBtn.addEventListener("click", handleGenerateBtnClick);
+createAccount?.addEventListener("click", handleCreateAccountClick);

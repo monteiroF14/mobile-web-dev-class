@@ -1,14 +1,8 @@
-import setSession from "./setSession.js";
+import { setSession } from "./setSession.js";
+import { indexedDB } from "index.js";
 
 const verifyEmail = (email) => {
     return new Promise((resolve, reject) => {
-        const indexedDB =
-            window.indexedDB ||
-            window.mozIndexedDB ||
-            window.webkitIndexedDB ||
-            window.msIndexedDB ||
-            window.shimIndexedDB;
-
         if (!indexedDB) {
             console.error("IndexedDB not supported");
             reject(new Error("IndexedDB not supported"));

@@ -1,4 +1,4 @@
-const getUserFromDB = (USER_ID) => {
+export const getUserFromDB = (USER_ID) => {
     return new Promise((resolve, reject) => {
         const request = indexedDB.open("usersDB");
 
@@ -20,5 +20,3 @@ const getUserFromDB = (USER_ID) => {
         };
     });
 };
-
-export default getUserFromDB;

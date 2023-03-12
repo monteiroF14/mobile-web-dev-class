@@ -1,5 +1,5 @@
-import addUserToDB from "./addUserToDB.js";
-import setSession from "./setSession.js";
+import { addUserToDB } from "./addUserToDB.js";
+import { setSession } from "./setSession.js";
 
 const clearInputs = () => {
     const inputIds = ["name", "email", "phone", "nif", "address", "observations"];
@@ -27,8 +27,8 @@ const handleSubmit = async (event) => {
     try {
         await addUserToDB({ name, email, phone, nif, address, observations }).then((userId) => {
             setSession(userId);
+            event.target.submit();
         });
-        event.target.submit();
     } catch (err) {
         alert(err);
         clearInputs();

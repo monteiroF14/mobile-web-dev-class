@@ -1,12 +1,7 @@
+import { indexedDB } from "index.js";
+
 const addUserToDB = (userData) => {
     return new Promise((resolve, reject) => {
-        const indexedDB =
-            window.indexedDB ||
-            window.mozIndexedDB ||
-            window.webkitIndexedDB ||
-            window.msIndexedDB ||
-            window.shimIndexedDB;
-
         if (!indexedDB) {
             console.error("IndexedDB not supported");
             reject(new Error("IndexedDB not supported"));
