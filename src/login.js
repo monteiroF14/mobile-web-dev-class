@@ -1,5 +1,5 @@
 import { setSession } from "./setSession.js";
-import indexedDB from "./index.js";
+import { indexedDB } from "./index.js";
 
 const verifyEmail = (email) => {
     return new Promise((resolve, reject) => {

@@ -1,4 +1,4 @@
-import indexedDB from "./index.js";
+import { indexedDB } from "./index.js";
 
 const addUserToDB = (userData) => {
     return new Promise((resolve, reject) => {
