@@ -1,6 +1,6 @@
 import { indexedDB } from "./index.js";
 
-const addUserToDB = (userData) => {
+export const addUserToDB = (userData) => {
     return new Promise((resolve, reject) => {
         if (!indexedDB) {
             console.error("IndexedDB not supported");
@@ -55,5 +55,3 @@ const addUserToDB = (userData) => {
         };
     });
 };
-
-export default addUserToDB;
