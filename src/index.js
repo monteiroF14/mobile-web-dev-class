@@ -1,4 +1,4 @@
-import getUserFromDB from "./getUserFromDB.js";
+import { getUserFromDB } from "./getUserFromDB.js";
 
 const numerosOnMain = document.querySelector(".numeros");
 const estrelasOnMain = document.querySelector(".estrelas");
